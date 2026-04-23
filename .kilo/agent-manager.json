@@ -1,4 +1,13 @@
 {
   "worktrees": {},
-  "sessions": {}
+  "sessions": {
+    "ses_245d0fddbffeqWkqKtnzdAI3z4": {
+      "worktreeId": null,
+      "createdAt": "2026-04-23T11:52:16.242Z"
+    },
+    "ses_245cf5fe6ffeqth0uSb2XDf6Uo": {
+      "worktreeId": null,
+      "createdAt": "2026-04-23T11:54:02.246Z"
+    }
+  }
 }

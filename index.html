@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Bergmann | GuT Bürgermeisterkandidatin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFBF5;
+            --yellow: #F5C518;
+            --yellow-bright: #FFD700;
+            --blue: #1E5FA8;
+            --blue-deep: #154785;
+            --text: #2D2A26;
+            --text-muted: #6B6560;
+            --shadow: rgba(45, 42, 38, 0.1);
+            --shadow-strong: rgba(45, 42, 38, 0.15);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 251, 245, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-main {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-main a {
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-main a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-main a:hover {
+            color: var(--blue);
+        }
+
+        .nav-main a:hover::after {
+            width: 100%;
+        }
+
+        .nav-legal {
+            display: flex;
+            gap: 20px;
+            font-size: 0.875rem;
+        }
+
+        .nav-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-legal a:hover {
+            color: var(--blue);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            margin: 6px 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.1s forwards;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--yellow-bright), var(--yellow));
+            color: var(--text);
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(245, 197, 24, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 40px rgba(245, 197, 24, 0.5);
+        }
+
+        /* Decorative shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite, fadeIn 1s ease 0.5s forwards;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-bright));
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s, 0.5s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 2s, 0.7s;
+        }
+
+        .shape-3 {
+            width: 120px;
+            height: 120px;
+            background: var(--yellow);
+            top: 30%;
+            right: 25%;
+            opacity: 0.6;
+            animation-delay: 4s, 0.9s;
+        }
+
+        .shape-4 {
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            bottom: 30%;
+            right: 8%;
+            opacity: 0.4;
+            animation-delay: 1s, 1.1s;
+        }
+
+        /* Wave divider */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            width: 100%;
+            height: 80px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--yellow);
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo-frame {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--yellow), var(--blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            background: var(--bg);
+            border-radius: 14px;
+        }
+
+        .about-photo-inner {
+            position: relative;
+            z-index: 2;
+            width: 85%;
+            height: 85%;
+            background: linear-gradient(135deg, #ddd, #eee);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-credentials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .credential {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg);
+            border-radius: 16px;
+        }
+
+        .credential-number {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--blue);
+        }
+
+        .credential-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Positions */
+        .positions {
+            background: var(--bg);
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .position-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .position-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px var(--shadow-strong);
+        }
+
+        .position-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-bright));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .position-card:nth-child(2) .position-icon {
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+        }
+
+        .position-card:nth-child(3) .position-icon {
+            background: linear-gradient(135deg, var(--yellow), var(--blue));
+        }
+
+        .position-card:nth-child(4) .position-icon {
+            background: linear-gradient(135deg, var(--blue), var(--yellow));
+        }
+
+        .position-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .position-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--bg);
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand h3 span {
+            color: var(--yellow);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--yellow);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--yellow);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 32px 32px;
+                box-shadow: -10px 0 30px var(--shadow);
+                transition: right 0.3s ease;
+            }
+
+            nav.open {
+                right: 0;
+            }
+
+            .nav-main {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .nav-legal {
+                flex-direction: column;
+                gap: 12px;
+                margin-top: auto;
+            }
+
+            .mobile-toggle {
+                display: block;
+                z-index: 1001;
+            }
+
+            .mobile-toggle.open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-photo {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .about-credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .shape-1 {
+                width: 150px;
+                height: 150px;
+            }
+
+            .shape-2 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .shape-3, .shape-4 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Anna<span>.</span>Bergmann</a>
+            <nav>
+                <div class="nav-main">
+                    <a href="#about">Über mich</a>
+                    <a href="#positions">Meine Positionen</a>
+                </div>
+                <div class="nav-legal">
+                    <a href="legal-notice.html">Impressum</a>
+                    <a href="privacy-policy.html">Datenschutz</a>
+                </div>
+            </nav>
+            <button class="mobile-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 6H15L11 9.5L12.5 15L8 11.5L3.5 15L5 9.5L1 6H6L8 1Z" fill="currentColor"/></svg>
+                    Kandidatin für GuT
+                </div>
+                <h1>Anna <span>Bergmann</span></h1>
+                <p class="hero-tagline">Für eine lebenswerte Zukunft in unserer Stadt. Gemeinsam mit GuT.</p>
+                <a href="#about" class="hero-cta">
+                    Mehr erfahren
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+                <path d="M0,80 C200,20 400,20 600,60 C800,100 1000,100 1200,40 L1200,80 Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title reveal">Über <span>mich</span></h2>
+            <div class="about-grid">
+                <div class="about-photo reveal">
+                    <div class="about-photo-frame">
+                        <div class="about-photo-inner">👤</div>
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <h3>Mit Leidenschaft für unsere Stadt</h3>
+                    <p>Als gebürtige Einwohnerin dieser wundervollen Stadt habe ich die Entwicklung unserer Gemeinschaft mein ganzes Leben lang miterlebt. Von den kleinen Veränderungen in unseren Vierteln bis hin zu den großen Entscheidungen im Stadtrat – ich weiß, was unsere Stadt lebenswert macht.</p>
+                    <p>Mit 15 Jahren Erfahrung in der Kommunalpolitik setze ich mich jeden Tag für eine nachhaltige, gerechte und lebenswerte Zukunft ein. Dabei höre ich zu, wo andere schweigen, und handle, wo andere zögern.</p>
+                    <div class="about-credentials">
+                        <div class="credential reveal">
+                            <div class="credential-number">15+</div>
+                            <div class="credential-label">Jahre Erfahrung</div>
+                        </div>
+                        <div class="credential reveal">
+                            <div class="credential-number">12</div>
+                            <div class="credential-label">Stadtviertel</div>
+                        </div>
+                        <div class="credential reveal">
+                            <div class="credential-number">8K+</div>
+                            <div class="credential-label">Unterstützer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="positions" id="positions">
+        <div class="container">
+            <h2 class="section-title reveal">Meine <span>Positionen</span></h2>
+            <div class="positions-grid">
+                <div class="position-card reveal">
+                    <div class="position-icon">🏡</div>
+                    <h4>Wohnen & Infrastruktur</h4>
+                    <p>Bezahlbarer Wohnraum für alle Generationen. Wir brauchen mutige Konzepte für lebendige Viertel mit guter Anbindung und grünen Begegnungsräumen.</p>
+                </div>
+                <div class="position-card reveal">
+                    <div class="position-icon">🌱</div>
+                    <h4>Klima & Nachhaltigkeit</h4>
+                    <p>Unsere Stadt soll Vorreiter für Klimaschutz werden. Solaroffensive, mehr Radwege und eine lebendige Innenstadt mit Aufenthaltsqualität sind mein Ziel.</p>
+                </div>
+                <div class="position-card reveal">
+                    <div class="position-icon">🎓</div>
+                    <h4>Bildung & Familie</h4>
+                    <p>Jedes Kind verdient beste Bildung von Anfang an. Kitas und Schulen brauchen moderne Gebäude, beste Ausstattung und motivierte Fachkräfte.</p>
+                </div>
+                <div class="position-card reveal">
+                    <div class="position-icon">❤️</div>
+                    <h4>Soziales & Miteinander</h4>
+                    <p>Ein starkes Gemeinwesen braucht funktionierende Sozialeinrichtungen, Generationen übergreifende Angebote und Orte der Begegnung für alle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Anna<span>.</span>Bergmann</h3>
+                    <p>Kandidatin für das Amt der Bürgermeisterin. Mit GuT für eine lebenswerte Zukunft – nachhaltig, gerecht und gemeinsam.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="#about">Über mich</a>
+                    <a href="#positions">Meine Positionen</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Rechtliches</h4>
+                    <a href="legal-notice.html">Impressum</a>
+                    <a href="privacy-policy.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Anna Bergmann. Alle Rechte vorbehalten.</p>
+                <div>
+                    <a href="legal-notice.html">Impressum</a> · <a href="privacy-policy.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('.nav-main a, .hero-cta');
+
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('open');
+            nav.classList.toggle('open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                mobileToggle.classList.remove('open');
+                nav.classList.remove('open');
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>

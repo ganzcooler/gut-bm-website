@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Anna Bergmann</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFBF5;
+            --yellow: #F5C518;
+            --yellow-bright: #FFD700;
+            --blue: #1E5FA8;
+            --blue-deep: #154785;
+            --text: #2D2A26;
+            --text-muted: #6B6560;
+            --shadow: rgba(45, 42, 38, 0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(45, 42, 38, 0.1);
+            margin-bottom: 60px;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--blue);
+        }
+
+        .page-content {
+            padding: 60px 0 100px;
+        }
+
+        .page-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 40px;
+        }
+
+        .page-content h1 span {
+            color: var(--yellow);
+        }
+
+        .page-content h2 {
+            font-size: 1.5rem;
+            margin: 40px 0 16px;
+            color: var(--blue);
+        }
+
+        .page-content p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .page-content ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .page-content li {
+            color: var(--text-muted);
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .page-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--yellow);
+            border-radius: 50%;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Anna<span>.</span>Bergmann</a>
+            <a href="index.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Zurück zur Startseite
+            </a>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <h1><span>Impressum</span></h1>
+            
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p>Anna Bergmann<br>
+            Bürgermeisterkandidatin der GuT (Gemeinsam für unsere Stadt)<br>
+            Musterstraße 123<br>
+            12345 Musterstadt<br>
+            Deutschland</p>
+
+            <h2>Kontakt</h2>
+            <ul>
+                <li>E-Mail: kontakt@anna-bergmann.de</li>
+                <li>Telefon: +49 (0) 123 456789</li>
+            </ul>
+
+            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+            <p>Anna Bergmann<br>
+            Musterstraße 123<br>
+            12345 Musterstadt</p>
+
+            <h2>Haftungsausschluss</h2>
+            <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewährleistung übernommen werden. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+            <p>Die Nutzung dieser Website erfolgt durch die Besucher auf eigene Verantwortung. Die auf dieser Website bereitgestellten Informationen stellen keine Rechts- oder Steuerberatung dar.</p>
+
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+            <h2>Quellenangaben</h2>
+            <p>Fotos und Grafiken: [Quellenangaben hier einfügen]<br>
+            Schriftarten: Fraunces und DM Sans via Google Fonts</p>
+
+            <h2>Streitschlichtung</h2>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Anna Bergmann. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="index.html">Startseite</a>
+                <a href="legal-notice.html">Impressum</a>
+                <a href="privacy-policy.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
