@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz – Max Mustermann</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-yellow: #FFD700;
+      --primary-yellow-light: #FFF3B0;
+      --primary-blue: #0055A4;
+      --primary-blue-dark: #003366;
+      --white: #FFFFFF;
+      --black: #0A0A0A;
+      --gray: #6B6B6B;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-page {
+      flex: 1;
+      padding: 4rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--black);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .legal-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 4px solid var(--primary-yellow);
+    }
+
+    .legal-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-header p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .legal-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-section h2 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .legal-section p {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      background: var(--black);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-yellow);
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .footer-links a.active {
+      color: var(--white);
+    }
+
+    .footer-links a.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .legal-page {
+        padding: 3rem 1.5rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="legal-page">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Zurück zur Startseite
+    </a>
+
+    <header class="legal-header">
+      <h1>Datenschutzerklärung</h1>
+      <p>Informationen zum Umgang mit personenbezogenen Daten</p>
+    </header>
+
+    <section class="legal-section">
+      <h2>Verantwortlicher</h2>
+      <p><strong>Max Mustermann</strong><br>
+      Kandidat für Oberbürgermeister<br>
+      Musterstraße 123<br>
+      12345 Musterstadt<br>
+      Deutschland<br><br>
+      E-Mail: info@max-mustermann.de</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Erhebung und Verarbeitung personenbezogener Daten</h2>
+      <p>Unsere Website dient ausschließlich der Information über den Kandidaten und seine politischen Positionen. Es werden keine personenbezogenen Daten automatisch erhoben.</p>
+      <p>Sofern Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (z.B. Name, E-Mail-Adresse) zum Zweck der Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Cookies</h2>
+      <p>Es werden keine Cookies gesetzt. Die Website verzichtet vollständig auf Tracking-Technologien oder Analyse-Tools.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Ihre Rechte</h2>
+      <p>Sie haben das Recht, Auskunft über die zu Ihrer Person gespeicherten Daten zu erhalten. Zudem können Sie die Berichtigung unrichtiger Daten sowie die Löschung Ihrer personenbezogenen Daten verlangen, soweit dem keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+      <p>Für Fragen zum Datenschutz wenden Sie sich bitte an: info@max-mustermann.de</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Server-Logfiles</h2>
+      <p>Bei jedem Besuch unserer Website werden automatisch temporäre technische Daten (Server-Logfiles) erhoben. Diese Daten umfassen insbesondere: Browsertyp, Betriebssystem, besuchte Seiten, Datum und Uhrzeit des Zugriffs.</p>
+      <p>Diese Daten werden ausschließlich für technische Zwecke und zur Fehleranalyse verwendet und nicht mit personenbezogenen Daten verknüpft. Eine Auswertung erfolgt nur in anonymisierter Form.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte Rechtslage oder Änderungen unserer Website anzupassen.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="legal-notice.html">Impressum</a>
+      <a href="privacy-policy.html" class="active">Datenschutz</a>
+    </div>
+  </footer>
+
+</body>
+</html>
